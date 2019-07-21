@@ -5,17 +5,6 @@ const PORT = process.env.PORT || 5000
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const mongoose = require('mongoose');
-
-// CONNECT TO MONGODB SERVER
-MONGODB_URI = process.env.MONGODB_URI;
-mongoose.connect(MONGODB_URI || mongoUri, {
-  useMongoClient: true;
-});
-const db = mongoose.connection;
-db.on('error', () => console.log('connection error'));
-db.once('open', () => console.log('you\'re connected on db!'));
-
 CHAMALANE_TOKEN = process.env.CHAMALANE_TOKEN;
 
 client.on('ready', () => {
@@ -44,4 +33,5 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
+  .get('/helloworld', (req, res) => res.render('pages/helloworld'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
