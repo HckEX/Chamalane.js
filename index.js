@@ -5,7 +5,14 @@ const PORT = process.env.PORT || 5000
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+// TOKEN of CHAMALANE BOT
 CHAMALANE_TOKEN = process.env.CHAMALANE_TOKEN;
+
+const pubg = require('pubg.js');
+const pubgClient = new pubg.Client(PUBG_KEY);
+
+// KEY of PUBG API
+PUBG_KEY = process.env.PUBG_API_KEY;
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -23,6 +30,10 @@ client.on('message', msg => {
   }
   if (msg.content === '일해라') {
     msg.channel.send('2019년 최저 시급은 8,350원입니다.');
+  }
+  if (msg.content.startsWith('배그 스탯 ')) {
+    var statArray = msg.content.split(' ');
+    msg.channel.send(statArray[2] + " " + statArray[3]);
   }
 });
 
