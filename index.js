@@ -12,7 +12,7 @@ CHAMALANE_TOKEN = process.env.CHAMALANE_TOKEN;
 PUBG_KEY = process.env.PUBG_API_KEY;
 
 const pubg = require('pubg.js');
-const pubgClient = new pubg.Client(PUBG_KEY, 'pc-kakao');
+const pubgClient = new pubg.Client(PUBG_KEY, 'kakao');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
