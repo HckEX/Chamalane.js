@@ -9,7 +9,7 @@ const client = new Discord.Client();
 CHAMALANE_TOKEN = process.env.CHAMALANE_TOKEN;
 
 // KEY of PUBG API
-PUBG_KEY = process.env.PUBG_API_KEY;
+PUBG_KEY = process.env.PUBG_API_KEY;s
 
 const pubg = require('pubg.js');
 const pubgClient = new pubg.Client(PUBG_KEY);
@@ -19,7 +19,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'ping') {
+  if (msg.content.toLowerCase() === 'ping') {
     msg.reply('Pong! ||' + Math.floor(client.ping) + ' ms||');
   }
   if (msg.content === 'hi') {
