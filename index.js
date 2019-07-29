@@ -12,7 +12,7 @@ CHAMALANE_TOKEN = process.env.CHAMALANE_TOKEN;
 PUBG_KEY = process.env.PUBG_API_KEY;
 
 const pubg = require('pubg.js');
-const pubgClient = new pubg.Client(PUBG_KEY);
+const pubgClient = new pubg.Client(PUBG_KEY, 'pc-kakao');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -33,8 +33,9 @@ client.on('message', msg => {
   }
   if (msg.content.startsWith('배그 스탯 ')) {
     var statArray = msg.content.split(' ');
-    const player = pubgClient.getPlayer({name: statArray[2]}, 'kakao');
-    msg.channel.send(player.name + " " + player.shardId);
+    const player = pubgClient.getPlayer({name: statArray[2]});
+      .then(player => player.attributes.shardId);
+    msg.channel.send(player.attributes.name + " " + player.attributes.shardId);
   }
 });
 
