@@ -9,7 +9,7 @@ const client = new Discord.Client();
 CHAMALANE_TOKEN = process.env.CHAMALANE_TOKEN;
 
 // KEY of PUBG API
-PUBG_KEY = process.env.PUBG_API_KEY;s
+PUBG_KEY = process.env.PUBG_API_KEY;
 
 const pubg = require('pubg.js');
 const pubgClient = new pubg.Client(PUBG_KEY);
