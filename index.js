@@ -33,7 +33,8 @@ client.on('message', msg => {
   }
   if (msg.content.startsWith('배그 스탯 ')) {
     var statArray = msg.content.split(' ');
-    msg.channel.send(statArray[2] + " " + statArray[3]);
+    const player = pubgClient.getPlayer({name: statArray[2]}, 'kakao');
+    msg.channel.send(player.name + " " + player.shardId);
   }
 });
 
