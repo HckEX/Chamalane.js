@@ -16,6 +16,7 @@ const pubgClient = new pubg.Client(PUBG_KEY, 'kakao');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  client.user.setActivity('YouTube', { type : 'WATCHING' });
 });
 
 client.on('message', msg => {
@@ -39,11 +40,6 @@ client.on('message', msg => {
 });
 
 client.login(CHAMALANE_TOKEN);
-
-client.user.setActivity("with depression", {
-  type: "STREAMING",
-  url: "https://www.twitch.tv/hckex"
-});
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
