@@ -18,9 +18,10 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.user.setActivity('game')
-  .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
-  .catch(console.error);
+client.user.setActivity("with depression", {
+  type: "STREAMING",
+  url: "https://www.twitch.tv/hckex"
+});
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'ping') {
