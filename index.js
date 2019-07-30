@@ -30,7 +30,7 @@ client.on('message', msg => {
     msg.channel.send('조아');
   }
   if (msg.content === '일해라') {
-    if (msg.author.tag === 'iDen#31324') {
+    if (msg.author.tag === 'iDen#4027') {
       msg.channel.send('네 주인님');
     }
     else {
