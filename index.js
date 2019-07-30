@@ -18,6 +18,8 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.user.setActivity('test')
+
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'ping') {
     msg.reply('Pong! ||' + Math.floor(client.ping) + ' ms||');
