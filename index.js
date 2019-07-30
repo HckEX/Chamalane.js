@@ -35,6 +35,7 @@ client.on('message', msg => {
     }
     else {
       msg.channel.send('2019년 최저 시급은 8,350원입니다.');
+      console.log(`${msg.author} sent WORK command`);
     }
   }
   if (msg.content.startsWith('배그 스탯 ')) {
