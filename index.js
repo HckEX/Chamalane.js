@@ -16,7 +16,7 @@ const pubgClient = new pubg.Client(PUBG_KEY, 'kakao');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity('개발', { type : 'PLAYING' });
+  client.user.setActivity('일', { type : 'PLAYING' });
 });
 
 client.on('message', msg => {
