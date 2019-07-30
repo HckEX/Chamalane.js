@@ -19,7 +19,9 @@ client.on('ready', () => {
 });
 
 client.user.setActivity('test')
-
+  .then(presence => console.log(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
+  .catch(console.error);
+  
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'ping') {
     msg.reply('Pong! ||' + Math.floor(client.ping) + ' ms||');
