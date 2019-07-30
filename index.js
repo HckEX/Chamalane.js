@@ -18,11 +18,6 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.user.setActivity("with depression", {
-  type: "STREAMING",
-  url: "https://www.twitch.tv/hckex"
-});
-
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'ping') {
     msg.reply('Pong! ||' + Math.floor(client.ping) + ' ms||');
@@ -44,6 +39,11 @@ client.on('message', msg => {
 });
 
 client.login(CHAMALANE_TOKEN);
+
+client.user.setActivity("with depression", {
+  type: "STREAMING",
+  url: "https://www.twitch.tv/hckex"
+});
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
