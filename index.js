@@ -30,12 +30,11 @@ client.on('message', msg => {
     msg.channel.send('조아');
   }
   if (msg.content === '일해라') {
-    if (msg.author === 'iDen#31324') {
+    if (msg.author.tag === 'iDen#31324') {
       msg.channel.send('네 주인님');
     }
     else {
       msg.channel.send('2019년 최저 시급은 8,350원입니다.');
-      console.log(`${msg.author} sent WORK command`);
     }
   }
   if (msg.content.startsWith('배그 스탯 ')) {
