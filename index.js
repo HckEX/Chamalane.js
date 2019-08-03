@@ -2,6 +2,24 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+
+// DB setting
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.connect(process.env.MONGODB_URI);
+var db = mongoose.connection;
+db.once("open", function(){
+  console.log("DB connected");
+});
+db.on("error", function(err){
+  console.log("DB ERROR : ", err);
+});
+
+// Discord BOT setting
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -52,5 +70,5 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/helloworld', (req, res) => res.render('pages/helloworld'))
-  .get('/hub', (req, res) => res.render('pages/hub'))
+  .use('/hub', require('./routes/posts'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

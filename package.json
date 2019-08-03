@@ -13,9 +13,10 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "discord.js": "^11.5.1",
-    "ejs": "^2.5.6",
+    "ejs": "^2.6.2",
     "express": "^4.17.1",
-    "mongoose": "^5.6.5",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.6.8",
     "postcss-loader": "^3.0.0",
     "pubg.js": "^3.9.0",
     "raw-loader": "^3.1.0",
