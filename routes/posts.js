@@ -18,7 +18,7 @@ router.get("/new", function(req, res){
 router.post("/", function(req, res){
   Post.create(req.body, function(err, post){
     if(err) return res.json(err);
-    res.redirect("/posts");
+    res.redirect("/hub");
   });
 });
 
@@ -40,14 +40,14 @@ router.put("/:id", function(req, res){
   req.body.updatedAt = Date.now(); // 2
   Post.findOneAndUpdate({_id:req.params.id}, req.body, function(err, post){
     if(err) return res.json(err);
-    res.redirect("/posts/"+req.params.id);
+    res.redirect("/hub/"+req.params.id);
   });
 });
 
 router.delete("/:id", function(req, res){
   Post.deleteOne({_id:req.params.id}, function(err){
     if(err) return res.json(err);
-    res.redirect("/posts");
+    res.redirect("/hub");
   });
 });
 
