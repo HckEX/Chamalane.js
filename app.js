@@ -5,7 +5,7 @@ import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 
 ClassicEditor
-    .create( document.querySelector( '#body' ), {
+    .create( document.querySelector( '#editor' ), {
         plugins: [ Essentials, Paragraph, Bold, Italic ],
         toolbar: [ 'bold', 'italic' ]
     } )
