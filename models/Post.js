@@ -9,7 +9,7 @@ var postSchema = mongoose.Schema({
   toObject:{virtuals:true}
 })
 
-postSchema.virtual("createDate")
+postSchema.virtual("createdDate")
 .get(function(){
   return getDate(this.createdAt);
 })
