@@ -107,7 +107,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _ckeditor_ckeditor5_editor_classic_src_classiceditor__WEBPACK_IMPORTED_MODULE_0__["default"]
-    .create( document.querySelector( '#body' ), {
+    .create( document.querySelector( '#editor' ), {
         plugins: [ _ckeditor_ckeditor5_essentials_src_essentials__WEBPACK_IMPORTED_MODULE_1__["default"], _ckeditor_ckeditor5_paragraph_src_paragraph__WEBPACK_IMPORTED_MODULE_2__["default"], _ckeditor_ckeditor5_basic_styles_src_bold__WEBPACK_IMPORTED_MODULE_3__["default"], _ckeditor_ckeditor5_basic_styles_src_italic__WEBPACK_IMPORTED_MODULE_4__["default"] ],
         toolbar: [ 'bold', 'italic' ]
     } )
