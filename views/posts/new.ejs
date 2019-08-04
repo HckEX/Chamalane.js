@@ -2,8 +2,6 @@
 <html>
  <head>
   <% include ../partials/header %>
-
-  <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
  </head>
  <body>
   <% include ../partials/nav %>
@@ -29,13 +27,7 @@
        <label for="body" class="col-sm-2 control-label">Body</label>
        <div class="col-sm-10">
         <textarea class="form-control" id="body" name="body" rows="5"></textarea>
-        <script>
-            ClassicEditor
-                .create( document.querySelector( '#body' ) )
-                .catch( error => {
-                    console.error( error );
-                } );
-            </script>
+        <script src="dist/bundle.js"></script>
        </div>
       </div>
      </fieldset>
