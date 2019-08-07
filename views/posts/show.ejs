@@ -29,7 +29,10 @@
       </div>
      </div>
      <div class="col-sm-8 col-sm-pull-4">
-      <textarea class="post-body"><%- post.body %></textarea>
+        <textarea class="post-body" id="body"><%- post.body %></textarea>
+        <script>
+            var simplemde = new SimpleMDE({ element: document.getElementById("body") });
+        </script>
      </div>
     </div>
    </div>
