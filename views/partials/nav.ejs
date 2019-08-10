@@ -2,16 +2,16 @@
   <div class="container">
     <ul class="nav navbar-nav">
       <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-      <li><a href="/helloworld"><span class="glyphicon glyphicon-user"></span> Hello World!</a></li>
+      <li><a href="/helloworld"><span class="glyphicon glyphicon-folder-open"></span> Hello World!</a></li>
       <li><a href="/posts"><span class="glyphicon glyphicon-pushpin"></span> Board</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <% if(isAuthenticated){ %>
-          <li><a href="/users/<%= currentUser.username %>">My Account</a></li>
-          <li><a href="/logout">Logout</a></li>
+          <li><a href="/users/<%= currentUser.username %>"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         <% } else { %>
-          <li><a href="/users/new"><span class="glyphicon glyphicon-book"></span> Sign Up</a></li>
-          <li><a href="/login"><span class="glyphicon glyphicon-book"></span> Login</a></li>
+          <li><a href="/users/new"><span class="glyphicon glyphicon-send"></span> Sign Up</a></li>
+          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <% } %>
       </ul>
   </div>
