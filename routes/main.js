@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var passport = require("../config/passport");
 
 router.get("/", function(req, res){
   res.render("main/index");
@@ -38,6 +39,7 @@ router.get("/login", function (req,res) {
    res.redirect("/login");
   }
  },
+
  passport.authenticate("local-login", {
   successRedirect : "/",
   failureRedirect : "/login"
