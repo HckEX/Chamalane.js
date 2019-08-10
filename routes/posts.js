@@ -1,5 +1,5 @@
 var showdown  = require('showdown');
-var converter = new showdown.Converter(),
+var converter = new showdown.Converter();
 
 var express = require("express");
 var router  = express.Router();
