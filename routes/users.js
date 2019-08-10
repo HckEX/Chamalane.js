@@ -12,7 +12,6 @@ router.get("/", function(req, res){
  });
 });
 
-
 router.get("/new", function(req, res){
  res.render("users/new", {user:{}});
 });
@@ -39,14 +38,14 @@ router.get("/:username/edit", function(req, res){
 });
 
 router.put("/:username",function(req, res, next){
- User.findOne({username:req.params.username}) // 2-1
- .select("password") // 2-2
+ User.findOne({username:req.params.username})
+ .select("password")
  .exec(function(err, user){
   if(err) return res.json(err);
 
   user.originalPassword = user.password;
   user.password = req.body.newPassword? req.body.newPassword : user.password; // 2-3
-  for(var p in req.body){ // 2-4
+  for(var p in req.body){
    user[p] = req.body[p];
   }
 
