@@ -15,6 +15,21 @@ util.parseError = function (errors) {
   return parsed;
 }
 
+util.isLoggedin = function(req, res, next){
+  if(req.isAuthenticated()){
+   next();
+  } else {
+   req.flash("errors", {login:"Please login first"});
+   res.redirect("/login");
+  }
+ }
+ 
+ util.noPermission = function(req, res){
+  req.flash("errors", {login:"You don't have permission"});
+  req.logout();
+  res.redirect("/login");
+ }
+
 util.getDate = function (dateObj) {
   if (dateObj instanceof Date)
     return dateObj.getFullYear() + "-" + get2digits(dateObj.getMonth() + 1) + "-" + get2digits(dateObj.getDate());

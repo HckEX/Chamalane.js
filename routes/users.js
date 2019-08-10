@@ -4,7 +4,7 @@ var User = require("../models/User");
 var util = require("../util");
 
 
-router.get("/", function (req, res) {
+router.get("/", util.isLoggedin, function (req, res) {
   User.find({})
     .sort({ username: 1 })
     .exec(function (err, users) {
@@ -30,14 +30,14 @@ router.post("/", function (req, res) {
   });
 });
 
-router.get("/:username", function (req, res) {
+router.get("/:username", util.isLoggedin, function (req, res) {
   User.findOne({ username: req.params.username }, function (err, user) {
     if (err) return res.json(err);
     res.render("users/show", { user: user });
   });
 });
 
-router.get("/:username/edit", function (req, res) {
+router.get("/:username/edit", util.isLoggedin, checkPermission, function (req, res) {
   var user = req.flash("user")[0];
   var errors = req.flash("errors")[0] || {};
   if (!user) {
@@ -50,7 +50,7 @@ router.get("/:username/edit", function (req, res) {
   }
 });
 
-router.put("/:username", function (req, res, next) {
+router.put("/:username", util.isLoggedin, checkPermission, function (req, res, next) {
   User.findOne({ username: req.params.username })
     .select({ password: 1 })
     .exec(function (err, user) {
@@ -77,17 +77,11 @@ router.put("/:username", function (req, res, next) {
 
 module.exports = router;
 
-function parseError(errors) {
-  var parsed = {};
-  if (errors.name == 'ValidationError') {
-    for (var name in errors.errors) {
-      var validationError = errors.errors[name];
-      parsed[name] = { message: validationError.message };
-    }
-  } else if (errors.code == "11000" && errors.errmsg.indexOf("username") > 0) {
-    parsed.username = { message: "This username already exists!" };
-  } else {
-    parsed.unhandled = JSON.stringify(errors);
-  }
-  return parsed;
-}
+function checkPermission(req, res, next){
+  User.findOne({username:req.params.username}, function(err, user){
+   if(err) return res.json(err);
+   if(user.id != req.user.id) return util.noPermission(req, res);
+ 
+   next();
+  });
+ }
