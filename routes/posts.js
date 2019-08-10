@@ -1,3 +1,7 @@
+<script src="https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js"></script>
+var showdown  = require('showdown');
+var converter = new showdown.Converter(),
+
 var express = require("express");
 var router  = express.Router();
 var Post    = require("../models/Post");
@@ -25,7 +29,7 @@ router.post("/", function(req, res){
 router.get("/:id", function(req, res){
   Post.findOne({_id:req.params.id}, function(err, post){
     if(err) return res.json(err);
-    res.render("posts/show", {post:post});
+    res.render("posts/show", {post:post, post2html:converter.makeHtml(post.body)});
   });
 });
 
