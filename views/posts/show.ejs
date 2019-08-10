@@ -13,7 +13,7 @@
 
     <div class="buttons">
       <a class="btn btn-default" href="/posts">Back</a>
-      <% if(isAuthenticated && currentUser.id == post.author.id){ %>
+      <% if(isAuthenticated && typeof post.author.id != "undefined" && currentUser.id == post.author.id){ %>
       <a class="btn btn-default" href="/posts/<%= post._id %>/edit">Edit</a>
       <form action="/posts/<%= post._id %>?_method=delete" method="post">
         <a class="btn btn-default" href="#"
