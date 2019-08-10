@@ -1,5 +1,9 @@
 var showdown = require('showdown');
-var converter = new showdown.Converter();
+const showdownHL = require("showdown-highlight");
+
+var converter = new showdown.Converter({
+  extensions: [showdownHL]
+});
 
 var express = require("express");
 var router = express.Router();
