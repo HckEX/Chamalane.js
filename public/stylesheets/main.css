@@ -29,6 +29,15 @@
 .buttons form{
  display: inline-block;
 }
+
+.ellipsis{
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ }
+
 /* home style */
 .home h1{
  color: darkseagreen;
@@ -47,6 +56,11 @@
 .post .posts .date{
  width: 100px;
 }
+.post-index .posts{
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  table-layout: fixed;
+ }
 
 /* user style */
 .user {
