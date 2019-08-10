@@ -20,9 +20,9 @@
     <table class="table table-striped posts">
       <thead>
         <tr>
-          <th class="title">Title</th>
-          <th class="author">Author</th>
-          <th class="date">Date</th>
+          <th width="70%" class="title">Title</th>
+          <th width="15%" class="author">Author</th>
+          <th width="15%" class="date">Date</th>
         </tr>
       </thead>
       <tbody>
@@ -33,15 +33,15 @@
         <% } %>
         <% posts.forEach(function(post) { %>
         <tr>
-          <td class="title">
+          <td width="70%" class="title">
             <a href="/posts/<%= post._id %>">
               <div class="ellipsis"><%= post.title %></div>
             </a>
           </td>
-          <td class="author">
+          <td width="15%" class="author">
             <div class="ellipsis"><%= post.author ? post.author.username : "" %></div>
           </td>
-          <td class="date">
+          <td width="15%" class="date">
             <%= post.createdDate %>
           </td>
         </tr>
