@@ -38,7 +38,13 @@
                     console.error( error );
                 } );
             */
-            var simplemde = new SimpleMDE({ element: document.getElementById("body") });
+            var simplemde = new SimpleMDE({ 
+                element: document.getElementById("body"),
+                autosave: {
+                    enabled: true,
+                    uniqueId: "chamalane",
+                    delay:1000,
+                }, });
         </script>
        </div>
       </div>
