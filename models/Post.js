@@ -1,33 +1,34 @@
 var mongoose = require("mongoose");
+var util  = require("../util");
 
 var postSchema = mongoose.Schema({
-  title: { type: String, required: true },
-  body: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date },
-}, {
-    toObject: { virtuals: true }
-  })
+  title:{type:String, required:[true,"Title is required!"]},
+  body:{type:String, required:[true,"Body is required!"]},
+  updatedAt:{type:Date},
+ },{
+  toObject:{virtuals:true}
+ });
+ 
 
-postSchema.virtual("createdDate")
-  .get(function () {
-    return getDate(this.createdAt);
-  })
-
-postSchema.virtual("createdTime")
-  .get(function () {
-    return getTime(this.createdAt);
-  });
-
-postSchema.virtual("updatedDate")
-  .get(function () {
-    return getDate(this.updatedAt);
-  });
-
-postSchema.virtual("updatedTime")
-  .get(function () {
-    return getTime(this.updatedAt);
-  });
+ postSchema.virtual("createdDate")
+ .get(function(){
+  return util.getDate(this.createdAt);
+ });
+ 
+ postSchema.virtual("createdTime")
+ .get(function(){
+  return util.getTime(this.createdAt);
+ });
+ 
+ postSchema.virtual("updatedDate")
+ .get(function(){
+  return util.getDate(this.updatedAt);
+ });
+ 
+ postSchema.virtual("updatedTime")
+ .get(function(){
+  return util.getTime(this.updatedAt);
+ });
 
 var Post = mongoose.model("post", postSchema);
 module.exports = Post;
