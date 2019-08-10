@@ -19,9 +19,11 @@
 
    <div class="contentBox">
     <h3 class="contentBoxTop"><%= post.title %></h3>
+    <hr/>
     <div>
         <div class="post-body" id="body"><%- post2html %></div>
     </div>
+    <hr/>
     <div class="post-info">
         <div><span>Created</span> : <%= post.createdDate %> <%= post.createdTime %></div>
         <% if(post.updatedAt) { %>
