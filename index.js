@@ -72,8 +72,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
-app.get('/', (req, res) => res.render('pages/index'))
-app.get('/helloworld', (req, res) => res.render('pages/helloworld'))
-app.use('/posts', require('./routes/posts'))
+app.get('/', (req, res) => res.render('pages/index'));
+app.get('/helloworld', (req, res) => res.render('pages/helloworld'));
+app.use('/posts', require('./routes/posts'));
+app.use('/users', require('./routes/users'));
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
