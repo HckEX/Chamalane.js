@@ -35,10 +35,6 @@
 }
 
 /* post style */
-.post h2 {
- color: tomato;
- text-align: center;
-}
 .post .post-body{
  white-space: pre-line;
 }
