@@ -6,6 +6,8 @@ var app = express()
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var flash     = require("connect-flash");
+var session    = require("express-session");
 
 // DB setting
 mongoose.set('useNewUrlParser', true);
@@ -71,6 +73,8 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
+app.use(flash());
+app.use(session({secret:process.env.SESSION_KEY, resave:true, saveUninitialized:true}));
 
 app.get('/', (req, res) => res.render('pages/index'));
 app.get('/helloworld', (req, res) => res.render('pages/helloworld'));
