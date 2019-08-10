@@ -34,6 +34,12 @@
  color: darkseagreen;
 }
 
+.home-login{ /* 1 */
+  max-width: 330px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+ }
+
 /* post style */
 .post .post-body{
  white-space: pre-line;
