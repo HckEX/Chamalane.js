@@ -58,6 +58,13 @@
 .post-body>ul>li{
   line-height: 40%;
 }
+.post-body>hr{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.post-body>h2{
+  margin-top: 10px;
+}
 .post .posts .date{
   width: 100px;
 }
