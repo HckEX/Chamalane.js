@@ -52,6 +52,7 @@
 /* post style */
 .post .post-body{
   font-family: 'Nanum Gothic', sans-serif;
+  font-size: large;
   white-space: pre-line;
 }
 .post .posts .date{
