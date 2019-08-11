@@ -56,7 +56,7 @@
   white-space: pre-line;
 }
 .post-body>ul>li{
-  line-height: 90%;
+  line-height: 40%;
 }
 .post .posts .date{
   width: 100px;
