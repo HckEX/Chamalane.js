@@ -27,7 +27,7 @@
 
 /* global style */
 .buttons form{
- display: inline-block;
+  display: inline-block;
 }
 
 .ellipsis{
@@ -40,10 +40,10 @@
 
 /* home style */
 .home h1{
- color: darkseagreen;
+  color: darkseagreen;
 }
 
-.home-login{ /* 1 */
+.home-login{
   max-width: 330px;
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
@@ -51,10 +51,11 @@
 
 /* post style */
 .post .post-body{
- white-space: pre-line;
+  font-family: 'Nanum Gothic', sans-serif;
+  white-space: pre-line;
 }
 .post .posts .date{
- width: 100px;
+  width: 100px;
 }
 .post-index .posts{
   border-top: 1px solid #ccc;
@@ -72,7 +73,7 @@
   margin: 0;
   padding: 3px 12px;
  }
- .user-index ul:after { /* 1 */
+ .user-index ul:after {
   content: "";
   display: block;
   clear: both;
