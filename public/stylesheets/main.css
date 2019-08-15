@@ -58,6 +58,9 @@
 .post-body>ul>li{
   line-height: 40%;
 }
+.post-body>ol>li{
+  line-height: 40%;
+}
 .post-body>hr{
   margin-top: 0px;
   margin-bottom: 0px;
