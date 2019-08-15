@@ -71,8 +71,8 @@ client.login(CHAMALANE_TOKEN);
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '10mb'  }));
 app.use(methodOverride("_method"));
 app.use(flash());
 app.use(session({ secret: process.env.SESSION_KEY, resave: true, saveUninitialized: true }));
