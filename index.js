@@ -34,7 +34,7 @@ CHAMALANE_TOKEN = process.env.CHAMALANE_TOKEN;
 PUBG_KEY = process.env.PUBG_API_KEY;
 
 const pubg = require('pubg.js');
-const pubgClient = new pubg.Client(PUBG_KEY, 'steam');
+const pubgClient = new pubg.Client(PUBG_KEY);
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -60,8 +60,29 @@ client.on('message', msg => {
     }
   }
   if (msg.content.startsWith('배그 스탯 ')) {
-    var statArray = msg.content.split(' ');
-    pubgClient.getPlayer({ name: statArray[2] }).then(res => console.log(res)).catch(e => console.log(e));
+    var statArray = msg.content.split(' '); //ex) 배그 스탯 steam ComKor solo
+    var player;
+    var season;
+
+    pubgClient.getPlayer({ name: statArray[3] }, statArray[2])
+      .then(res => player = res)
+      .then(() => console.log(player))
+      .catch(e => console.log(e));
+    
+    pubgClient.getSeasons(statArray[2])
+      .then(res=> season = res.pop())
+      .then(() => console.log(season))
+      .catch(e => console.log(e));
+
+    setTimeout(function() {
+      pubgClient.getPlayerSeason(player, season)
+        .then(res => {if(statArray[4] == '스쿼드') { msg.channel.send("" + res.attributes.gameModeStats.squad) }
+                      else if(statArray[4] == '듀오') {msg.channel.send("" + res.attributes.gameModeStats.duo)}
+                      else if(statArray[4] == '솔로') {msg.channel.send("" + res.attributes.gameModeStats.solo)}
+                      else { msg.channel.send('배그 스탯 서버(steam, kakao) 닉네임 모드(솔로, 듀오, 스쿼드)') }
+                    })
+        .catch(e => console.log(e));
+     }, 1000)
   }
 });
 
