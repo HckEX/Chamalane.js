@@ -58,7 +58,7 @@ client.on('message', msg => {
     else {
       msg.channel.send('2019년 최저 시급은 8,350원입니다.');
     }
-  }
+  }/*
   if (msg.content.startsWith('배그 스탯 ')) {
     var statArray = msg.content.split(' '); //ex) 배그 스탯 steam ComKor solo
     var player;
@@ -81,7 +81,7 @@ client.on('message', msg => {
                     })
         .catch(e => console.log(e));
      }, 1000)
-  }
+  }*/
 });
 
 client.login(CHAMALANE_TOKEN);
