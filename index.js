@@ -66,12 +66,10 @@ client.on('message', msg => {
 
     pubgClient.getPlayer({ name: statArray[3] }, statArray[2])
       .then(res => player = res)
-      .then(() => console.log(player))
       .catch(e => console.log(e));
     
     pubgClient.getSeasons(statArray[2])
       .then(res=> season = res.pop())
-      .then(() => console.log(season))
       .catch(e => console.log(e));
 
     setTimeout(function() {
