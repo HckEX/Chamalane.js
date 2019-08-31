@@ -61,8 +61,7 @@ client.on('message', msg => {
   }
   if (msg.content.startsWith('배그 스탯 ')) {
     var statArray = msg.content.split(' ');
-    const player = pubgClient.getPlayer({ name: statArray[2] })
-    msg.channel.send(player.id);
+    client.getPlayer({ name: 'Zaytt' }).then(res => msg.channel.send(res)).catch(e => console.log(e));
   }
 });
 
