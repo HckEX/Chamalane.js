@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.3.0",
-  "description": "A sample Node.js app using Express 4",
+  "name": "chamalane",
+  "version": "0.1.0",
+  "description": "Javascript blog with discord bot",
   "engines": {
     "node": "10.x"
   },
