@@ -49,6 +49,11 @@
   font-size: 12px;
  }
 
+/* board style */
+.thead-board{
+  line-height: 70%;
+}
+
 /* post style */
 .post .post-body{
   font-family: 'Noto Sans KR', sans-serif;
