@@ -58,11 +58,13 @@
 #post-sidebar{
   vertical-align: top;
   display: table-cell;
-  width: 150px;
+  width: 210px;
 }
 
 #post-main{
   display: table-cell;
+  max-width: 900px;
+  padding-left: 50px;
 }
 
 .post .post-body{
