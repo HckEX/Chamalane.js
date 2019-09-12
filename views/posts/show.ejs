@@ -24,19 +24,23 @@
       <% } %>
     </div>
 
-    <div class="contentBox">
-      <h3 class="contentBoxTop"><%= post.title %></h3>
-      <div><span>Author</span> : <%= post.author ? post.author.username : "" %></div>
-      <hr />
-      <div>
-        <div class="post-body" id="body"><%- post2html %></div>
-      </div>
-      <hr />
-      <div class="post-info">
-        <div><span>Created</span> : <%= post.createdDate %> <%= post.createdTime %></div>
-        <% if(post.updatedAt) { %>
-        <div><span>Updated</span> : <%= post.updatedDate %> <%= post.updatedTime %></div>
-        <% } %>
+    <% include ../partials/sidebar %>
+
+    <div id="post-main">
+      <div class="contentBox">
+        <h3 class="contentBoxTop"><%= post.title %></h3>
+        <div><span>Author</span> : <%= post.author ? post.author.username : "" %></div>
+        <hr />
+        <div>
+          <div class="post-body" id="body"><%- post2html %></div>
+        </div>
+        <hr />
+        <div class="post-info">
+          <div><span>Created</span> : <%= post.createdDate %> <%= post.createdTime %></div>
+          <% if(post.updatedAt) { %>
+          <div><span>Updated</span> : <%= post.updatedDate %> <%= post.updatedTime %></div>
+          <% } %>
+        </div>
       </div>
     </div>
 
