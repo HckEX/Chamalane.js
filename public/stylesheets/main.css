@@ -55,6 +55,17 @@
 }
 
 /* post style */
+#post-sidebar{
+  vertical-align: top;
+  display: table-cell;
+  width: 150px;
+}
+
+#post-main{
+  display: table-cell;
+  width: 810px;
+}
+
 .post .post-body{
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 110%;

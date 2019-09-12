@@ -12,44 +12,50 @@
     <% include ./partials/header %>
 
     <div class="buttons">
-        <% if(isAuthenticated){ %>
-          <a class="btn btn-default" href="/posts/new">New</a>
-        <% } %>
+      <% if(isAuthenticated){ %>
+      <a class="btn btn-default" href="/posts/new">New</a>
+      <% } %>
     </div>
 
-    <table class="table posts">
-      <thead class="thead-light thead-board">
-        <tr>
-          <th width="70%" class="title">Title</th>
-          <th width="15%" class="author">Author</th>
-          <th width="15%" class="date">Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% if(posts == null || posts.length == 0){ %>
-        <tr>
-          <td class="noData" colspan=100> There is no data to show :( </td>
-        </tr>
-        <% } %>
-        <% posts.forEach(function(post) { %>
-        <tr>
-          <td width="70%" class="title">
-            <a href="/posts/<%= post._id %>">
-              <div class="ellipsis"><%= post.title %></div>
-            </a>
-          </td>
-          <td width="15%" class="author">
-            <div class="ellipsis"><%= post.author ? post.author.username : "" %></div>
-          </td>
-          <td width="15%" class="date">
-            <%= post.createdDate %>
-          </td>
-        </tr>
-        <% }) %>
-      </tbody>
-    </table>
+    <div id="post-sidebar">
+      Hi
+    </div>
+
+    <div id="post-main">
+      <table class="table posts">
+        <thead class="thead-light thead-board">
+          <tr>
+            <th width="70%" class="title">Title</th>
+            <th width="15%" class="author">Author</th>
+            <th width="15%" class="date">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(posts == null || posts.length == 0){ %>
+          <tr>
+            <td class="noData" colspan=100> There is no data to show :( </td>
+          </tr>
+          <% } %>
+          <% posts.forEach(function(post) { %>
+          <tr>
+            <td width="70%" class="title">
+              <a href="/posts/<%= post._id %>">
+                <div class="ellipsis"><%= post.title %></div>
+              </a>
+            </td>
+            <td width="15%" class="author">
+              <div class="ellipsis"><%= post.author ? post.author.username : "" %></div>
+            </td>
+            <td width="15%" class="date">
+              <%= post.createdDate %>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
   </div>
-  
+
 </body>
 
 </html>
